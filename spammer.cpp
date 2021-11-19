@@ -48,7 +48,7 @@ void initflood(string wb = "") {
         while (true) {
             auto r = req.Post(endpoint.c_str(), message.c_str(), message.length(), "application/json");
             if (r) {
-                cout << "[" << r->status << "] Succesfully Sended, Response: => \n" << r->body << "\n\n";
+                cout << "[" << r->status << "] Succesfully Sended, Response: => \n" << (r->body.empty() ? "[Empty]" : r->body) << "\n\n";
             } else {
                 cerr << "Error at requesting.\n" << r.error();
                 return;
